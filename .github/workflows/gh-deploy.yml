@@ -24,10 +24,9 @@ jobs:
         BRANCH: gh-pages
         FOLDER: dist
     - name: DeployHack
+      uses: actions/checkout@v1
+      with:
+        ref: gh-pages
       run: |
-        git stash
-        git fetch
-        git checkout gh-pages
-        git pull
         git commit -m 'rebuild pages' --allow-empty
         git push
