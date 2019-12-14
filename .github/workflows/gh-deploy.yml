@@ -25,6 +25,7 @@ jobs:
         FOLDER: dist
     - name: DeployHack
       run: |
+        git stash
         git fetch
         git checkout gh-pages
         git pull
