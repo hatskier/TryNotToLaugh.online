@@ -21,6 +21,14 @@
   animation: fade-slide-down 1s ease 0s forwards;
 }
 
+.slide-down-element-500ms-delay {
+  animation: fade-slide-down 1s ease 0.5s forwards;
+}
+
+.slide-down-element-1s-delay {
+  animation: fade-slide-down 1s ease 1s forwards;
+}
+
 .slide-left-element {
   animation: fade-slide-left 1s ease 0s forwards;
 }

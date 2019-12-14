@@ -4,11 +4,11 @@
       <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
           <a href="#/">
-            <img id="navbar-logo" src="../../public/TryNotToLaugh-Logo.svg" />
+            <img id="navbar-logo" src="../../public/TryNotToLaugh-Logo.png" />
           </a>
           <!-- <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button> -->
           <a class="normal-text" href="#/">
-            <span class="mdc-top-app-bar__title white">GAG</span>
+            <span class="mdc-top-app-bar__title white"></span>
           </a>
         </section>
 
@@ -187,7 +187,7 @@ export default {
   }
 
   .mdc-top-app-bar__row {
-    background: black;
+    background: #FE922A;
   }
 
   .navbar {
@@ -199,7 +199,10 @@ export default {
   }
 
   #navbar-logo {
-    height: 30px;
+    height: 35px;
+    border: 1px solid #6200ee;
+    margin-top: 5px;
+    border-radius: 50%;
   }
 
   #avatar-image {

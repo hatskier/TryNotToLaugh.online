@@ -1,9 +1,11 @@
 <template>
   <section id="splash">
     <div id="splash-content">
+      <img id="logo-on-splash" src="../../../public/TryNotToLaugh-Logo.png" />
+
       <h1 class="slide-down-element" id="h1-title">
-        <vue-typed-js
-          :strings="['Funny', 'AI powered', 'Open source', 'Free']"
+        <!-- <vue-typed-js
+          :strings="['Try not to laugh', 'Free', 'Open source', 'Funny', 'Ads Free']"
           :showCursor="false"
           :startDelay="100"
           :backDelay="800"
@@ -11,16 +13,18 @@
           :loopCount="Infinity"
           >
           <span class="typing" id="title-part"></span>
-        </vue-typed-js>
+        </vue-typed-js> -->
+        Try not to laugh
         <br />
-        GAME
       </h1>
 
-      <div id="get-started-button-container">
-        <a href="/#/posts/" id="get-started-button" class="mdc-button mdc-button--outlined">
+      <p class="slide-down-element-500ms-delay init-hidden" id="subtitle">Gain scores, compete with friends</p>
+
+      <div class="slide-down-element-1s-delay init-hidden" id="get-started-button-container">
+        <a href="/#/game/" id="get-started-button" class="mdc-button mdc-button--raised">
           <div class="mdc-button__ripple"></div>
           <span class="mdc-button__label">
-            TRY IT NOW
+            TRY THE GAME
             <!-- <i class="material-icons">keyboard_arrow_right</i> -->
           </span>
         </a>
@@ -43,21 +47,40 @@ Vue.use(VueTypedJs)
 
 // var controller = new ScrollMagic.Controller();
 
+function hideNavbar() {
+  document.getElementsByClassName('mdc-top-app-bar')[0].style.display = 'none'
+}
+
+function showNavbar() {
+  document.getElementsByClassName('mdc-top-app-bar')[0].style.display = 'flex'
+}
+
+function initBGChange() {
+  // setTimeout(() => {
+  //   document.getElementById('splash-content').style.background = "url('trying-not-to-laugh.gif') repeat"
+  // }, 1300)
+}
+
 export default {
   data() {
     return {
     }
   },
+  mounted() {
+    // hideNavbar()
+  },
   created() {
+    initBGChange()
     document.onscroll = function() {
+      // showNavbar()
       // let scrollTop = $(document).scrollTop()
       // console.log(scrollTop)
     }
   },
   methods: {
     scrollToSection(id) {
-      var section = document.getElementById(id);
-      section.scrollIntoView();
+      var section = document.getElementById(id)
+      section.scrollIntoView()
     }
   },
   components: {
@@ -75,8 +98,10 @@ export default {
   #splash-content {
     /* background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)), url('../../../public/laugh-bg.gif') center center no-repeat;; */
 
-    background: black;
-    background-size: cover;
+    /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('../../../public/trying-not-to-laugh.gif') repeat; */
+    /* background: black; */
+    background: #6200ee;
+    /* background-size: cover; */
     height: 110vh;
   }
 
@@ -88,7 +113,7 @@ export default {
 
   h1 {
     color: white;
-    font-size: 10vh;
+    font-size: 14vh;
     /* display: flex;
     align-items: center;
     justify-content: center; */
@@ -97,9 +122,10 @@ export default {
     text-align: center;
   }
 
-  h1 span {
-    font-size: 14vh;
-    /* display: none; */
+  #subtitle {
+    color: white;
+    font-size: 5vh;
+    text-align: center;
   }
 
   #decentralized-title {
@@ -156,9 +182,17 @@ export default {
   #get-started-button {
     margin-top: 40px;
     font-size: 20px;
+    background: #FE922A;
     /* padding: 10px; */
     height: 60px;
     
+  }
+
+  #logo-on-splash {
+    height: 20vh;
+    position: absolute;
+    left: calc(50vw - 10vh);
+    top: 15vh;
   }
   
 </style>

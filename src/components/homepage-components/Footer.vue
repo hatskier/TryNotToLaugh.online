@@ -6,7 +6,7 @@
       </a>
     </div>
     
-    <p>© 2019 blockgag.co</p>
+    <p>© 2020 TryNotToLaugh.online</p>
   </footer>
 </template>
 

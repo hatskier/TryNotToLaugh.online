@@ -5,23 +5,20 @@
       :class="{ 'slide-left-element': wasViewable }"
       v-observe-visibility="visibilityChanged"
       id="text-content">
-      <h2>
-        Live emotions
-      </h2>
-      <p>
-        Touch the future with the brand new AI feature on the blockgag.co.
-        Our algorithm can use video from your web camera (of course if you give access) to analyze your facial
-        expressions and calculate the time of being happy on the website.
-        Note, that each  webcam video is private and is not sent anywhere, AI algorithm works directly in your browser.
-        Currently the "live emotions" algoithm can recognize happiness, sadness, surprise and anger.
-        In the close future we'll add optional "likes by smiling" and "scrolling by nod" features.
-      </p>
+      <!-- <h2>
+        Get started
+      </h2> -->
+      <!-- <p>
+        The idea is quite simple: you watch short funny videos and try not to laugh, the less you
+        laugh the more scores you gain. The game has different levels with different difficulties.
+        This section will be changed
+      </p> -->
 
-      <a href="/#/posts/" id="get-started-button" class="mdc-button mdc-button--raised">
+      <a href="/#/game/" id="get-started-button" class="mdc-button mdc-button--raised">
         <div class="mdc-button__ripple"></div>
         <span class="mdc-button__label">
-          TRY BLOCKGAG
-          <!-- <i class="material-icons">keyboard_arrow_right</i> -->
+          PLAY
+          <i class="material-icons">flash_on</i>
         </span>
       </a>
     </div>
@@ -85,7 +82,7 @@ h2 {
   padding-bottom: 20px;
   color: white;
   z-index: 10;
-  font-size: 12vh;
+  font-size: 8vh;
   /* position: absolute; */
 }
 
@@ -101,17 +98,26 @@ p {
 
 #live-emotions-explanation {
   width: 100%;
-  height: 100vh;
+  height: 500px;
   /* background: #f8fafd; */
   /* background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)), url('../../../public/bg-earth.jpg') center center no-repeat;; */
-  background: black;
+  /* background: black; */
+  /* background: #6200ee; */
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('../../../public/trying-not-to-laugh.gif') repeat;
+  background-size: 200px 100px;
 }
 
 #get-started-button {
-  margin-top: 40px;
-  font-size: 20px;
+  /* margin-top: 45vh; */
+  margin-top: 200px;
+  font-size: 5vh;
   /* padding: 10px; */
-  height: 60px;
+  height: 10vh;
+  /* background: #FE922A; */
+}
+
+.material-icons {
+  font-size: 5vh;
 }
 
 /* .particles-js-canvas-el { */

@@ -76,8 +76,8 @@ export default {
   @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
   @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-  $mdc-theme-primary: #00be00;
-  $mdc-theme-secondary: #092dfa;
+  // $mdc-theme-primary: #00be00;
+  // $mdc-theme-secondary: #092dfa;
   // $mdc-theme-primary: #092dfa;
   // $mdc-theme-secondary: #00be00;
   @import "material-components-web/material-components-web";
@@ -166,5 +166,11 @@ export default {
   }
   body.dark-mode .black-in-dark-mode {
     color: black !important;
+  }
+  body.dark-mode .mdc-top-app-bar__row {
+    background: black !important;
+  }
+  body.dark-mode .feature-description {
+    color: white;
   }
 </style>
