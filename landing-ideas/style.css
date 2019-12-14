@@ -1,0 +1,33 @@
+#splash {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('trying-not-to-laugh.gif') repeat;
+  /* background: black; */
+  /* background-size: cover; */
+  height: 110vh;
+}
+
+* {
+  font-family: sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+#splash .text-container {
+  margin: auto;
+  text-align: center;
+}
+
+#splash h1 {
+  font-size: 15vh;
+  padding-top: 35vh;
+}
+
+#splash p {
+  color: white;
+  font-size: 5vh;
+}
+/* 
+#laugh-img {
+  margin: auto;
+  width: 1000px;
+} */
