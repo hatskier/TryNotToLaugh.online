@@ -23,3 +23,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
         FOLDER: dist
+    - name: DeployHack
+      run: |
+        get fetch && git checkout gh-pages
+        git pull
+        git commit -m 'rebuild pages' --allow-empty
+        git push origin gh-pages
