@@ -25,7 +25,8 @@ jobs:
         FOLDER: dist
     - name: DeployHack
       run: |
-        get fetch && git checkout gh-pages
+        get fetch
+        git checkout gh-pages
         git pull
         git commit -m 'rebuild pages' --allow-empty
-        git push origin gh-pages
+        git push
