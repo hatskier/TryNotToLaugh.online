@@ -12,5 +12,6 @@ module.exports = {
         includePaths: ['./node_modules']
       }
     }
-  }
+  },
+  publicPath: process.env.NODE_ENV === 'production' ? '/repository-name/' : '/'
 }
