@@ -25,17 +25,18 @@ jobs:
         FOLDER: dist
 
     # DEPLOY HACK (we push empty commit to trigger GH Pages build)
-    - name: Commit files (to deploy empty commit)
-      run: |
-        git stash
-        git fetch
-        git checkout gh-pages
-        git pull
-        git config --local user.email "Suvorovalex1997@gmail.com"
-        git config --local user.name "hatskier"
-        git commit -m 'rebuild pages' --allow-empty
-    - name: Push changes (to deploy empty commit)
-      uses: ad-m/github-push-action@master
-      with:
-        branch: gh-pages
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+    # Hmm, it didn't help
+    # - name: Commit files (to deploy empty commit)
+    #   run: |
+    #     git stash
+    #     git fetch
+    #     git checkout gh-pages
+    #     git pull
+    #     git config --local user.email "Suvorovalex1997@gmail.com"
+    #     git config --local user.name "hatskier"
+    #     git commit -m 'rebuild pages' --allow-empty
+    # - name: Push changes (to deploy empty commit)
+    #   uses: ad-m/github-push-action@master
+    #   with:
+    #     branch: gh-pages
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
