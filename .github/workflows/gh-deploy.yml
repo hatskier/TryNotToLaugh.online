@@ -23,10 +23,15 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
         FOLDER: dist
-    - name: DeployHack
-      uses: actions/checkout@v1
-      with:
-        ref: gh-pages
+
+    # DEPLOY HACK (we push empty commit to trigger GH Pages build)
+    - name: Commit files (to deploy empty commit)
       run: |
+        git config --local user.email "Suvorovalex1997@gmail.com"
+        git config --local user.name "hatskier"
         git commit -m 'rebuild pages' --allow-empty
-        git push
+    - name: Push changes (to deploy empty commit)
+      uses: ad-m/github-push-action@master
+      with:
+        branch: gh-pages
+        github_token: ${{ secrets.GITHUB_TOKEN }}
