@@ -8,7 +8,8 @@
 
     <!-- TODO add !ready -->
     <span v-if="enabled && !ready" id="expression-emoji">
-      <img class="loader-img" src="../../public/oval.svg">
+      <!-- <img class="loader-img" src="../../public/oval.svg"> -->
+      <img class="loader-img" src="../../public/spinner2.svg">
     </span>
 
     <div id="live-emotions-stats" class="mdc-elevation--z1">
@@ -17,7 +18,7 @@
         {{ happyTimeSeconds }}
       </h2>
       <p id="seconds-text" class="centered">seconds</p>
-      <p id="happy-time-text" class="centered">Happy time on blockgag</p>
+      <p id="happy-time-text" class="centered">Laughing time</p>
     </div>
   </div>
 </template>
@@ -37,7 +38,7 @@ let hackyStopSignalSent = false
 async function startVideo(onExpressionsDetected) {
   try {
     video = document.getElementById('video')
-    window.toastr.success('ML models loading started')
+    // window.toastr.success('ML models loading started')
     await loadMLModels()
 
     stream = await navigator.mediaDevices.getUserMedia({
@@ -160,6 +161,11 @@ export default {
           0.2: emoji.surprised[1]
         }
       }
+
+      if (this.expressions.happy > 0.3) {
+        window.toastr.success('We see, you\'re smiling')
+      }
+
       for (let expressionType in emojiConfig) {
         for (let level in emojiConfig[expressionType]) {
           if (this.expressions[expressionType] > level) {
@@ -169,6 +175,14 @@ export default {
       }
       return emoji.neutral
     }
+  },
+  beforeDestroy() {
+    console.log('Finishing video recording')
+    stopVideo()
+    hackyStopSignalSent = true
+    setTimeout(() => {
+      this.ready = false
+    }, tickSize * 2)
   },
   watch: {
     enabled: function(newVal) {
@@ -209,10 +223,12 @@ export default {
 }
 
 #expression-emoji {
-  position: fixed;
-  top: 120px;
-  right: 70px;
-  font-size: 120px;
+  position: absolute;
+  top: 10px;
+  /* right: 30px; */
+  right: calc(50vw - 30px);
+  font-size: 60px;
+  z-index: 100;
 }
 
 #live-emotions-stats {
@@ -226,7 +242,8 @@ export default {
 #live-emotions-stats h2 {
   /* margin-top: 5px; */
   font-size: 40px;
-  color: #00be00;
+  /* color: #00be00; */
+  color: #6200ee;
   margin-top: -5px;
 }
 
@@ -235,7 +252,7 @@ export default {
 }
 
 #happy-time-text {
-  font-size: 12px;
+  font-size: 16px;
   margin-bottom: 20px;
 }
 

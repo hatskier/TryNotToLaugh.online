@@ -1,9 +1,9 @@
 <template>
   <section id="splash">
     <div id="splash-content">
-      <img id="logo-on-splash" src="../../../public/TryNotToLaugh-Logo.png" />
+      <img class="fade-in-element init-hidden" id="logo-on-splash" src="../../../public/TryNotToLaugh-Logo.png" />
 
-      <h1 class="slide-down-element" id="h1-title">
+      <h1 class="slide-down-element init-hidden" id="h1-title">
         <!-- <vue-typed-js
           :strings="['Try not to laugh', 'Free', 'Open source', 'Funny', 'Ads Free']"
           :showCursor="false"
@@ -21,7 +21,7 @@
       <p class="slide-down-element-500ms-delay init-hidden" id="subtitle">Gain scores, compete with friends</p>
 
       <div class="slide-down-element-1s-delay init-hidden" id="get-started-button-container">
-        <a href="/#/game/" id="get-started-button" class="mdc-button mdc-button--raised">
+        <a href="/#/levels/" id="get-started-button" class="mdc-button mdc-button--raised">
           <div class="mdc-button__ripple"></div>
           <span class="mdc-button__label">
             TRY THE GAME
@@ -40,20 +40,20 @@
 
 <script>
 // import ScrollMagic from 'scrollmagic'
-import Vue from 'vue'
-import { VueTypedJs } from 'vue-typed-js'
+// import Vue from 'vue'
+// import { VueTypedJs } from 'vue-typed-js'
 
-Vue.use(VueTypedJs)
+// Vue.use(VueTypedJs)
 
 // var controller = new ScrollMagic.Controller();
 
-function hideNavbar() {
-  document.getElementsByClassName('mdc-top-app-bar')[0].style.display = 'none'
-}
+// function hideNavbar() {
+//   document.getElementsByClassName('mdc-top-app-bar')[0].style.display = 'none'
+// }
 
-function showNavbar() {
-  document.getElementsByClassName('mdc-top-app-bar')[0].style.display = 'flex'
-}
+// function showNavbar() {
+//   document.getElementsByClassName('mdc-top-app-bar')[0].style.display = 'flex'
+// }
 
 function initBGChange() {
   // setTimeout(() => {
@@ -84,7 +84,7 @@ export default {
     }
   },
   components: {
-    VueTypedJs,
+    // VueTypedJs,
   }
 }
 
@@ -117,7 +117,7 @@ export default {
     /* display: flex;
     align-items: center;
     justify-content: center; */
-    padding-top: 35vh;
+    padding-top: 40vh;
     z-index: 1;
     text-align: center;
   }

@@ -2,7 +2,7 @@
   <Dialog title="Log in to add posts">
     <!-- <h4>What is Blockstack?</h4> -->
     <p class="blockstack-description">
-      BlockGAG is built using
+      TryNotToLaugh.online is built using
         <a target="_blank" href="https://blockstack.org/try-blockstack">Blockstack</a>
       infrastructure,
       allowing us to provide decentralized encrypted storage.

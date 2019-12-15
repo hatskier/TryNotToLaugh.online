@@ -10,7 +10,8 @@ import App from './App.vue'
 import BlockstackUtils from './modules/blockstackUtils'
 
 import Home from './components/pages/Home.vue'
-import Game from './components/pages/Game.vue'
+import Levels from './components/pages/Levels.vue'
+import Level from './components/pages/Level.vue'
 // import Posts from './components/pages/Posts.vue'
 // import Post from './components/pages/Post.vue'
 // import Add from './components/pages/Add.vue'
@@ -41,7 +42,8 @@ function getDefaultComponent() {
 const routes = [
   { path: '/', component: getDefaultComponent() },
   { path: '/home', component: Home },
-  { path: '/game', component: Game },
+  { path: '/levels', component: Levels },
+  { path: '/level/:levelNr', component: Level },
   // { path: '/posts/:category', component: Posts },
   // { path: '/post/:id', component: Post },
   // { path: '/add', component: Add },

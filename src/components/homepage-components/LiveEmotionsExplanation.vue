@@ -2,8 +2,6 @@
   <section id="live-emotions-explanation">
     <!-- <vue-particles color="#dedede"></vue-particles> -->
     <div
-      :class="{ 'slide-left-element': wasViewable }"
-      v-observe-visibility="visibilityChanged"
       id="text-content">
       <!-- <h2>
         Get started
@@ -14,11 +12,16 @@
         This section will be changed
       </p> -->
 
-      <a href="/#/game/" id="get-started-button" class="mdc-button mdc-button--raised">
+      <a href="/#/levels/" id="get-started-button"
+        v-observe-visibility="visibilityChanged"
+        :class="{ 'fade-in-element': wasViewable }"
+        class="mdc-button mdc-button--raised init-hidden"
+       >
         <div class="mdc-button__ripple"></div>
         <span class="mdc-button__label">
           PLAY
-          <i class="material-icons">flash_on</i>
+          <!-- <i class="material-icons">flash_on</i> -->
+          <i class="material-icons">videogame_asset</i>
         </span>
       </a>
     </div>
@@ -104,7 +107,7 @@ p {
   /* background: black; */
   /* background: #6200ee; */
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('../../../public/trying-not-to-laugh.gif') repeat;
-  background-size: 200px 100px;
+  background-size: 300px 150px;
 }
 
 #get-started-button {

@@ -3,19 +3,28 @@
     <header class="mdc-top-app-bar mdc-top-app-bar--dense">
       <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-          <a href="#/">
+          <a v-if="!State.path.includes('level/')" href="#/">
             <img id="navbar-logo" src="../../public/TryNotToLaugh-Logo.png" />
           </a>
           <!-- <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button> -->
           <a class="normal-text" href="#/">
             <span class="mdc-top-app-bar__title white"></span>
           </a>
+
+          <a
+            v-if="State.path.includes('level/')"
+            class="mdc-button mdc-button--outlined"
+            href="javascript:history.back()">
+            <i class="material-icons back-icon">keyboard_backspace</i>
+            BACK
+          </a>
+
         </section>
 
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
           <!-- <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Download">file_download</button>
           <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Print this page">print</button> -->
-          <div v-if="State.path.includes('posts')" class="navbar-el">
+          <!-- <div v-if="State.path.includes('posts')" class="navbar-el">
             <button @click="toggleLiveEmotions()" class="mdc-button mdc-button--outlined">
               <div class="mdc-button__ripple"></div>
                 <span v-if="!State.liveEmotionsEnabled">
@@ -25,17 +34,17 @@
                   STOP LIVE EMOTIONS
                 </span>
             </button>
-          </div>
+          </div> -->
 
           <!-- Try also add, add_circle, add_box, add_circle_outline, add_comment, post_add, add_a_photo, add_photo_alternate, add_to_photos, note_add -->
-          <div class="navbar-el">
+          <!-- <div class="navbar-el">
             <a
               href="#/add"
               v-if="signedIn"
               class="mdc-icon-button material-icons white add-photo-icon">
               add_photo_alternate
             </a>
-          </div>
+          </div> -->
 
           <div class="navbar-el">
             <a
@@ -258,5 +267,10 @@ export default {
     margin-left: 0px;
     position: relative;
     right: 10px;
+  }
+
+  .back-icon {
+    position: relative;
+    top: 0px;
   }
 </style>

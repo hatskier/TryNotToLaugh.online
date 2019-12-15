@@ -7,7 +7,8 @@
 <script>
 
 export default {
-  name: "Post",
+  name: "Level",
+
   props: {
     text: Number,
     img: String,
