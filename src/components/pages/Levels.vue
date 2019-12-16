@@ -178,6 +178,8 @@ h1 {
 .level-scores {
   /* color: #6200ee; */
   position: absolute;
+  /* top: 5px;
+  left: 5px; */
   color: #FE922A;
   /* font-size: 16px; */
 }

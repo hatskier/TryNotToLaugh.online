@@ -6,6 +6,8 @@ import Constants from '../constants'
 
 // import BlockgagPost from '../models/BlockgagPost'
 
+const SCORES_FILENAME = 'TNTL_scores.json'
+
 // const FILENAMES = {
 //   contacts: 'dfmapp_contacts.json',
 //   debts: 'dfmapp_debts.json'
@@ -58,11 +60,30 @@ export default {
       if (userData.profile && userData.profile.image && userData.profile.image[0]) {
         return userData.profile.image[0].contentUrl
       }
-
-      // Sync progress
-      this.syncGameProgressWithLocalStorageAndGaia()
     }
     return null
+  },
+
+  async getAllScores() {
+    if (userSession.isUserSignedIn()) {
+      let resultText = await userSession.getFile(SCORES_FILENAME, { decrypt: true })
+      if (!resultText) {
+        return {}
+      } else {
+        return JSON.parse(resultText)
+      }
+    } else {
+      throw new Error('Cant get scores, user is not signed in')
+    }
+  },
+
+  async updateScoresInBlockstack(newScores) {
+    if (userSession.isUserSignedIn()) {
+      console.log('Updating scores in Blockstack: ' + JSON.stringify(newScores))
+      await userSession.putFile(SCORES_FILENAME, JSON.stringify(newScores), { encrypt: true })
+    } else {
+      throw new Error('Cant update scores, user is not signed in')
+    }
   },
 
   async checkAuth() {
@@ -89,9 +110,10 @@ export default {
       }
     }
 
-    // if (userSession.isUserSignedIn()) {
-    //   await User.createWithCurrentUser()
-    // }
+    if (userSession.isUserSignedIn()) {
+      // await User.createWithCurrentUser()
+      this.syncGameProgressWithLocalStorageAndGaia()
+    }
   },
 
   signIn() {
@@ -117,14 +139,39 @@ export default {
   async syncGameProgressWithLocalStorageAndGaia() {
     if (this.isUserSignedIn()) {
       console.log('SYNCING GAME PROGRESS WITH LOCAL STORAGE AND GAIA - STARTED')
+
+      let scoresFromBlockstack = await this.getAllScores()
+
+      let newScoresForBlockstack = {}
+
       for (let levelNr = 0; levelNr < Constants.levels.length; levelNr++) {
         console.log('SYNCING GAME PROGRESS FOR LEVEL: ' + levelNr)
         // Read data from blockstack files
+        let levelScoresFromBlockstack = 0
+        if (scoresFromBlockstack && scoresFromBlockstack[levelNr]) {
+          levelScoresFromBlockstack = Number(scoresFromBlockstack[levelNr])
+        }
+
         // Read data from localStorage
+        let levelScoresFromLocalStorage = 0
+        if (localStorage['TNTLScoresForLevel' + levelNr]) {
+          levelScoresFromLocalStorage = localStorage['TNTLScoresForLevel' + levelNr]
+        }
+
         // Calculating the correct (maximum) value
+        let correctScoresForLevel = Math.max(levelScoresFromBlockstack, levelScoresFromLocalStorage)
+        if (isNaN(correctScoresForLevel)) {
+          correctScoresForLevel = 0
+        }
+
         // Updating GAIA with the correct value
+        newScoresForBlockstack[levelNr] = correctScoresForLevel.toFixed(2)
+
         // Updating localStorage with the correct value
+        localStorage['TNTLScoresForLevel' + levelNr] = correctScoresForLevel
       }
+
+      await this.updateScoresInBlockstack(newScoresForBlockstack)
       console.log('SYNCING GAME PROGRESS WITH LOCAL STORAGE AND GAIA - COMPLETED')
     } else {
       console.log('USER IS NOT SIGNED IN TO BLOCKSTACK: SYNCING SKIPPED')
