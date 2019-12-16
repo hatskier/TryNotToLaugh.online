@@ -1,5 +1,5 @@
 <template>
-  <Dialog title="Log in to add posts">
+  <Dialog title="Log in to save your progress in Blockstack">
     <!-- <h4>What is Blockstack?</h4> -->
     <p class="blockstack-description">
       TryNotToLaugh.online is built using

@@ -164,4 +164,7 @@ export default {
   body.dark-mode .mdc-card {
     background: black;
   }
+  body.dark-mode .star {
+    color: #FE922A;
+  }
 </style>

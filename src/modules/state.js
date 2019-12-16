@@ -11,6 +11,7 @@ let State = {
   syncStatus: 'Synced',
   liveEmotionsEnabled: false,
   selectedTag: '',
+  emotionDetectionCB: null, // will be a function
 
   // Methods
   async loadStateFromBlockchain() {
@@ -49,10 +50,18 @@ let State = {
     }
   },
 
+  setEmotionsDetectionCB(cb) {
+    Vue.set(this, 'emotionDetectionCB', cb)
+  },
+
   upsertContact(contact) {
     let res = this.defaultUpsert(contact, 'contacts', 'Contact')
     this.updateStateToBlockchain({ updateContacts: true })
     return res
+  },
+
+  saveScoresForLevel(levelNr, scores) {
+    localStorage['TNTLScoresForLevel' + levelNr] = scores
   },
 
   removeContact(contact) {

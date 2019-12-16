@@ -2,6 +2,14 @@
   <div class="game-container mdc-layout-grid">
     <h1 class="init-hidden fade-in-element">Select level</h1>
 
+    <h3 class="total-scores-title init-hidden fade-in-element">Total:
+      <!-- &nbsp; -->
+      <i class="material-icons star">star</i>
+      <span class="level-scores-number">
+        {{ getTotalScrores() }}
+      </span>
+    </h3>
+
     <div class="mdc-layout-grid__inner">
       <div
         v-for="(level, levelNr) in levels"
@@ -29,8 +37,15 @@
 
           <h3 class="level-title">
             {{ level.title }}
-            <img class="done-img" src="../../../public/done.gif" />
+            <!-- <img class="done-img" src="../../../public/done.gif" /> -->           
           </h3>
+
+          <span class="level-scores">
+            <i class="material-icons star">star</i>
+            <span class="level-scores-number">
+              {{ getScoresForLevel(levelNr) }}
+            </span>
+          </span>
           
         </div>
         
@@ -65,8 +80,23 @@ export default {
       if (levelNr <= this.lastCompletedLevel + 1) {
         location.href = `#/level/${levelNr}`
       }
-      console.log(this.lastCompletedLevel)
-      console.log(localStorage.lastLevelCompletedTNTL)
+      // console.log(this.lastCompletedLevel)
+      // console.log(localStorage.lastLevelCompletedTNTL)
+    },
+    getScoresForLevel(levelNr) {
+      let valFromLocalStorage = localStorage['TNTLScoresForLevel' + levelNr]
+      // console.log('GOT: ' + valFromLocalStorage + ' + ' + levelNr)
+      if (valFromLocalStorage) {
+        return Number(valFromLocalStorage).toFixed(2)
+      }
+      return 0
+    },
+    getTotalScrores() {
+      let res = 0
+      for (let nr = 0; nr < Constants.levels.length; nr++) {
+        res += Number(this.getScoresForLevel(nr))
+      }
+      return res.toFixed(2)
     }
   },
   components: {
@@ -93,7 +123,7 @@ export default {
 }
 
 h1 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #6200ee;
   font-size: 50px;
   text-align: center;
@@ -123,8 +153,9 @@ h1 {
   padding-bottom: 10px;
   padding-left: 10px;
   font-size: 25px;
+  color: #6200ee;
+  /* color: #FE922A; */
   /* color: #6200ee; */
-  color: #FE922A;
   text-align: center;
 }
 
@@ -142,6 +173,23 @@ h1 {
 
 .level-completed .done-img {
   display: inline;
+}
+
+.level-scores {
+  /* color: #6200ee; */
+  position: absolute;
+  color: #FE922A;
+  /* font-size: 16px; */
+}
+
+.level-scores-number {
+  margin-left: -12px;
+}
+
+.total-scores-title {
+  color: #6200ee;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 </style>

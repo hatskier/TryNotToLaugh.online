@@ -3,14 +3,21 @@
     <!-- <vue-particles color="#dedede"></vue-particles> -->
     <div
       id="text-content">
-      <!-- <h2>
-        Get started
-      </h2> -->
-      <!-- <p>
-        The idea is quite simple: you watch short funny videos and try not to laugh, the less you
-        laugh the more scores you gain. The game has different levels with different difficulties.
-        This section will be changed
-      </p> -->
+      <h2>
+        <!-- Emotions analyzer -->
+        
+        Don't laugh
+        <br />
+        Have fun
+        
+      </h2>
+      <p class="description">
+        <!-- Your video is private -->
+        <!-- AI will analyze your emotions, but the video will not be sent anywhere.
+        The expressions analyzer works directly in your browser and your video
+        is private by default. The current emotions analyzer version can recognize 
+        happiness, sadness, surprise and anger. -->
+      </p>
 
       <a href="/#/levels/" id="get-started-button"
         v-observe-visibility="visibilityChanged"
@@ -101,7 +108,8 @@ p {
 
 #live-emotions-explanation {
   width: 100%;
-  height: 500px;
+  /* height: 500px; */
+  height: 80vh;
   /* background: #f8fafd; */
   /* background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)), url('../../../public/bg-earth.jpg') center center no-repeat;; */
   /* background: black; */
@@ -112,7 +120,7 @@ p {
 
 #get-started-button {
   /* margin-top: 45vh; */
-  margin-top: 200px;
+  margin-top: 30px;
   font-size: 5vh;
   /* padding: 10px; */
   height: 10vh;
@@ -130,5 +138,10 @@ p {
   /* z-index:  */
   /* bottom: 90vh; */
 /* } */
+
+.description {
+  font-size: 45px;
+  text-align: center;
+}
 
 </style>

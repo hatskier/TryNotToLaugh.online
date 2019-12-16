@@ -25,6 +25,7 @@
 
 <script>
 import { nets, detectAllFaces, TinyFaceDetectorOptions } from 'face-api.js'
+import State from '../modules/state'
 
 const tickSize = 300 // ms
 let video
@@ -163,7 +164,11 @@ export default {
       }
 
       if (this.expressions.happy > 0.3) {
-        window.toastr.success('We see, you\'re smiling')
+        // window.toastr.success('We see, you\'re smiling')
+      }
+
+      if (State.emotionDetectionCB) {
+        State.emotionDetectionCB(this.expressions)
       }
 
       for (let expressionType in emojiConfig) {

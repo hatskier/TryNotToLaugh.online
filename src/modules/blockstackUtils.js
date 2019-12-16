@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import blockstack from 'blockstack'
+import Constants from '../constants'
 // import { User, configure, getConfig } from 'radiks'
 // import axios from 'axios'
 
@@ -57,6 +58,9 @@ export default {
       if (userData.profile && userData.profile.image && userData.profile.image[0]) {
         return userData.profile.image[0].contentUrl
       }
+
+      // Sync progress
+      this.syncGameProgressWithLocalStorageAndGaia()
     }
     return null
   },
@@ -105,6 +109,25 @@ export default {
     if (!localStorage.lastLevelCompletedTNTL || Number(localStorage.lastLevelCompletedTNTL) < levelNr) {
       console.log('SETTING COMPLETION222')
       localStorage.lastLevelCompletedTNTL = levelNr;
+    }
+    this.syncGameProgressWithLocalStorageAndGaia()
+  },
+
+  // A bit hardcoded function
+  async syncGameProgressWithLocalStorageAndGaia() {
+    if (this.isUserSignedIn()) {
+      console.log('SYNCING GAME PROGRESS WITH LOCAL STORAGE AND GAIA - STARTED')
+      for (let levelNr = 0; levelNr < Constants.levels.length; levelNr++) {
+        console.log('SYNCING GAME PROGRESS FOR LEVEL: ' + levelNr)
+        // Read data from blockstack files
+        // Read data from localStorage
+        // Calculating the correct (maximum) value
+        // Updating GAIA with the correct value
+        // Updating localStorage with the correct value
+      }
+      console.log('SYNCING GAME PROGRESS WITH LOCAL STORAGE AND GAIA - COMPLETED')
+    } else {
+      console.log('USER IS NOT SIGNED IN TO BLOCKSTACK: SYNCING SKIPPED')
     }
   },
 
