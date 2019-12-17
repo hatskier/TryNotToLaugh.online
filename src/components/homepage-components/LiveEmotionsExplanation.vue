@@ -113,8 +113,8 @@ p {
   /* background: #f8fafd; */
   /* background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)), url('../../../public/bg-earth.jpg') center center no-repeat;; */
   /* background: black; */
-  /* background: #6200ee; */
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('../../../public/trying-not-to-laugh.gif') repeat;
+  background: #6200ee;
+  /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('../../../public/trying-not-to-laugh.gif') repeat; */
   background-size: 300px 150px;
 }
 
@@ -124,7 +124,7 @@ p {
   font-size: 5vh;
   /* padding: 10px; */
   height: 10vh;
-  /* background: #FE922A; */
+  background: #FE922A;
 }
 
 .material-icons {
