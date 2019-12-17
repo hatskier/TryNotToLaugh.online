@@ -1,13 +1,13 @@
-# blockgag.co
+# TryNotToLaugh.online
 
-Web app like 9gag built on blockstack. It is:
+Web game built on blockstackm where you watch funny videos and try not to laugh.
 - Ads-free
 - Secure
 - Decentralised
-- AI "live emotions" feature
+- AI emotions analyzer
 
-## More about "live emotions" feature
-TODO add description
+## AI emotions analyzer
+It works directly in browser
 
 ## To develop
 ```bash
