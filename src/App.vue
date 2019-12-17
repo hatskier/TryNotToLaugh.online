@@ -167,4 +167,8 @@ export default {
   body.dark-mode .star {
     color: #FE922A;
   }
+  body.dark-mode .blockstack-description {
+    color: black;
+  }
+
 </style>
