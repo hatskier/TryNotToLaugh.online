@@ -50,48 +50,51 @@ export default {
   levels: [
     {
       title: 'Level 1',
-      img: 'levels/level1.png',
+      // img: 'levels/level1.png',
+      img: 'emoji/level1.png',
       videoId: 'DODLEX4zzLQ',
     },
     {
       title: 'Level 2',
-      img: 'levels/level2.png',
+      // img: 'levels/level2.png',
+      img: 'emoji/level2.png',
       videoId: 'MRKKGwE5N58',
     },
     {
       title: 'Level 3',
-      img: 'levels/level3.png',
+      // img: 'levels/level3.png',
+      img: 'emoji/level3.png',
       videoId: '2aK8hy50fS4',
     },
     {
       title: 'Level 4',
-      img: 'levels/level4.png',
+      img: 'emoji/level4.png',
       videoId: 'mkjcN18edeo',
     },
     {
       title: 'Level 5',
-      img: 'levels/level5.png',
+      img: 'emoji/level5.png',
       videoId: 'FoiXcLC1yB0',
     },
     {
       title: 'Level 6',
-      img: 'levels/level6.png',
+      img: 'emoji/level6.png',
       videoId: 'bzZEH_5OuIs',
     },
     {
       title: 'Level 7',
-      img: 'levels/level7.png',
+      img: 'emoji/level7.png',
       videoId: 'XTHr4kjVj2o',
     },
     // TODO Add new video
     {
       title: 'Level 8',
-      img: 'levels/level8.png',
+      img: 'emoji/level8.png',
       videoId: '2aK8hy50fS4',
     },
     {
       title: 'Level 9',
-      img: 'levels/level9.png',
+      img: 'emoji/level9.png',
       videoId: 'A6hrw6KGdtM',
     }
   ],
