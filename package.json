@@ -9,7 +9,7 @@
     "build-ghp": "git fetch && git checkout gh-pages && git commit -m 'rebuild pages' --allow-empty && git push && git checkout master"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "blockstack": "^19.3.0",
     "core-js": "^2.6.5",
     "face-api.js": "^0.21.0",
